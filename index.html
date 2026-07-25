@@ -167,98 +167,17 @@
         50% { opacity: 1; }
       }
     </style>
-    <script type="module" crossorigin src="./assets/index-DT3qTJsw.js"></script>
+    <script type="module" crossorigin src="./assets/index-C7q3VfhG.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/rolldown-runtime-BYbx6iT9.js">
     <link rel="modulepreload" crossorigin href="./assets/preload-helper-Chd9yIcd.js">
     <link rel="modulepreload" crossorigin href="./assets/marked-no-surrender-CzZx5etH.js">
     <link rel="modulepreload" crossorigin href="./assets/enemy-ash-bannerman-CI76jGiZ.js">
     <link rel="modulepreload" crossorigin href="./assets/enemy-oath-captain-B5kpanFI.js">
     <link rel="modulepreload" crossorigin href="./assets/weaponPalette-BihwfKRC.js">
-    <link rel="modulepreload" crossorigin href="./assets/telemetryService-DP4pycbu.js">
+    <link rel="modulepreload" crossorigin href="./assets/telemetryService-a_MKr3xV.js">
     <link rel="modulepreload" crossorigin href="./assets/backStack-D--IRzhe.js">
     <link rel="modulepreload" crossorigin href="./assets/react-vendor-Dez-zW2_.js">
     <link rel="stylesheet" crossorigin href="./assets/index-BDvHP7dN.css">
-  <meta name="robots" content="noindex, nofollow, noarchive" />
-<style>
-  #pt-gate {
-    position: fixed; inset: 0; z-index: 2147483647;
-    display: flex; align-items: center; justify-content: center; flex-direction: column;
-    background: #04070d; color: #f2d27b;
-    font-family: ui-serif, Georgia, serif; text-align: center; padding: 24px;
-  }
-  #pt-gate h1 { font-size: 22px; letter-spacing: .18em; text-transform: uppercase; margin: 0 0 6px; font-weight: 500; }
-  #pt-gate p { color: #7d8899; font-size: 13px; margin: 0 0 28px; font-family: ui-sans-serif, system-ui, sans-serif; }
-  #pt-gate input {
-    background: #0b1018; border: 1px solid #2a3547; color: #e8eef7;
-    padding: 13px 16px; font-size: 16px; border-radius: 6px; width: min(280px, 78vw);
-    text-align: center; letter-spacing: .08em; outline: none;
-  }
-  #pt-gate input:focus { border-color: #f2d27b; }
-  #pt-gate button {
-    margin-top: 14px; background: #f2d27b; color: #04070d; border: 0;
-    padding: 13px 34px; font-size: 15px; border-radius: 6px; cursor: pointer;
-    letter-spacing: .1em; text-transform: uppercase; font-weight: 600;
-  }
-  #pt-err { color: #d9705f; font-size: 13px; height: 18px; margin-top: 12px;
-            font-family: ui-sans-serif, system-ui, sans-serif; }
-</style>
-<script>
-  (function () {
-    var KEY = 'pt-gate-ok';
-    if (sessionStorage.getItem(KEY) === '1') return;
-
-    // Silence audio until the gate clears so the menu track can't play behind it.
-    try { document.documentElement.setAttribute('data-pt-gated', '1'); } catch (e) {}
-
-    function mount() {
-      var g = document.createElement('div');
-      g.id = 'pt-gate';
-      g.innerHTML =
-        '<h1>Iron Oath</h1>' +
-        '<p>Private playtest build</p>' +
-        '<input id="pt-in" type="password" autocomplete="off" autocapitalize="off" ' +
-        'autocorrect="off" spellcheck="false" placeholder="passphrase" />' +
-        '<button id="pt-go">Enter</button>' +
-        '<div id="pt-err"></div>';
-      document.body.appendChild(g);
-
-      var input = g.querySelector('#pt-in');
-      var err = g.querySelector('#pt-err');
-
-      function tryOpen() {
-        if (input.value.trim() === 'CapeWow') {
-          sessionStorage.setItem(KEY, '1');
-          document.documentElement.removeAttribute('data-pt-gated');
-          g.remove();
-        } else {
-          err.textContent = 'Not that one.';
-          input.value = '';
-          input.focus();
-        }
-      }
-
-      g.querySelector('#pt-go').addEventListener('click', tryOpen);
-      // Enter/Go: match on key OR keyCode — mobile keyboards and some
-      // browsers report these differently, and a passphrase box that
-      // ignores the Go key reads as "the password doesn't work".
-      function onKey(e) {
-        if (e.key === 'Enter' || e.keyCode === 13 || e.which === 13) {
-          e.preventDefault();
-          tryOpen();
-        }
-      }
-      input.addEventListener('keydown', onKey);
-      input.addEventListener('keyup', function (e) {
-        if ((e.key === 'Enter' || e.keyCode === 13) && document.getElementById('pt-gate')) onKey(e);
-      });
-      setTimeout(function () { input.focus(); }, 80);
-    }
-
-    if (document.body) mount();
-    else document.addEventListener('DOMContentLoaded', mount);
-  })();
-</script>
-
   </head>
   <body>
     <div id="iron-oath-desktop-only" hidden>
