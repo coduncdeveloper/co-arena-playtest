@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="index,follow" />
+  <title>Iron Oath Privacy Notice</title>
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="description" content="What data Iron Oath collects, what is public, retention, and how to export or delete it." />
+  <style>
+    :root {
+      --ink: #07090f; --panel: #0d111a; --line: rgba(242,210,123,0.18);
+      --gold: #f2d27b; --gold-bright: #fff0bd; --bone: #d9d2c2; --bone-dim: #9a9382;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(242,210,123,0.06), transparent 45%),
+        linear-gradient(180deg, #0a0c11 0%, #07090f 60%, #04050a 100%);
+      color: var(--bone);
+      font-family: Georgia, 'Times New Roman', serif;
+      line-height: 1.6; min-height: 100vh;
+      padding: 48px 20px 80px;
+    }
+    .wrap { max-width: 720px; margin: 0 auto; }
+    .eyebrow { color: var(--bone-dim); font-family: system-ui, sans-serif; font-size: 12px;
+      letter-spacing: 0.28em; text-transform: uppercase; margin: 0 0 6px; }
+    h1 { color: var(--gold-bright); font-size: 30px; letter-spacing: 0.04em; margin: 0 0 6px;
+      text-transform: uppercase; font-family: system-ui, sans-serif; }
+    .updated { color: var(--bone-dim); font-size: 13px; font-style: italic; margin: 0 0 28px; }
+    .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+      padding: 20px 22px; margin: 0 0 18px; }
+    h2 { color: var(--gold); font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase;
+      font-family: system-ui, sans-serif; margin: 0 0 10px; }
+    p { margin: 0 0 12px; }
+    ol, ul { margin: 0 0 4px; padding-left: 22px; }
+    li { margin: 0 0 7px; }
+    a { color: var(--gold); }
+    a:hover { color: var(--gold-bright); }
+    .muted { color: var(--bone-dim); font-size: 14px; }
+    .mail { font-family: system-ui, sans-serif; font-weight: 600; }
+    footer { color: var(--bone-dim); font-size: 13px; margin-top: 28px; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="eyebrow">Iron Oath</p>
+    <h1>Privacy Notice</h1>
+    <p class="updated">Last updated: June 11, 2026</p>
+
+    <p>Iron Oath collects the minimum account data needed for optional accounts, profiles, run
+    telemetry, and leaderboards. Anonymous guest play stays local in your browser/device and
+    does not post run telemetry.</p>
+
+    <div class="panel">
+      <h2>What is collected</h2>
+      <ul>
+        <li>Email address through Supabase Auth (email sign-in), or your SteamID and public Steam
+        persona name when signing in through Steam.</li>
+        <li>Username.</li>
+        <li>Optional bio.</li>
+        <li>Avatar choice.</li>
+        <li>Signed-in run outcomes and run-summary data: oath, outcome, map reached, duration,
+        scars, mastery threshold, daily-challenge date, and completion time.</li>
+      </ul>
+    </div>
+
+    <div class="panel">
+      <h2>What is public</h2>
+      <p>Leaderboard and profile surfaces may show your username, bio, avatar, run stats, and
+      recent run summaries. <strong>Email addresses are never shown publicly.</strong></p>
+    </div>
+
+    <div class="panel">
+      <h2>Retention</h2>
+      <p>Account data is retained until the account is deleted. Local guest saves, local run
+      history, settings, and unlock progress remain on your device unless you clear local data
+      during the deletion flow or clear browser storage yourself.</p>
+    </div>
+
+    <div class="panel">
+      <h2>Processor</h2>
+      <p>Supabase processes authentication, profile rows, run records, daily seeds, and
+      leaderboard views. Steam sign-in is handled through Valve's Steam OpenID service; the game
+      receives only your public SteamID and persona name from Valve — never your Steam password
+      or payment details.</p>
+    </div>
+
+    <div class="panel">
+      <h2>Export and delete</h2>
+      <p>Signed-in users can open <strong>Account Settings</strong> in the game to export their
+      profile and run data as JSON, and to delete their account. Deletion removes the public
+      profile row and signed-in run records, and attempts to delete the Supabase Auth user via
+      the configured database function; if the project does not permit that, contact the owner
+      for final Auth removal. Full steps: <a href="/delete-account.html">Delete Your Account</a>.</p>
+    </div>
+
+    <footer>
+      Contact <a class="mail" href="mailto:coduncdeveloper@gmail.com">coduncdeveloper@gmail.com</a> &middot;
+      See also <a href="/delete-account.html">Account Deletion</a> and <a href="/credits.html">Credits</a>
+    </footer>
+  </div>
+</body>
+</html>

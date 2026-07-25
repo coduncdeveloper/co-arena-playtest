@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 768 1024" role="img" aria-label="Spear crossflow card art">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="32%" r="74%">
+      <stop offset="0" stop-color="#244531"/>
+      <stop offset="0.48" stop-color="#101a17"/>
+      <stop offset="1" stop-color="#030507"/>
+    </radialGradient>
+    <linearGradient id="shaft" x1="120" y1="826" x2="658" y2="180" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4d2f1c"/>
+      <stop offset="0.56" stop-color="#a87f52"/>
+      <stop offset="1" stop-color="#f0d28f"/>
+    </linearGradient>
+    <linearGradient id="point" x1="520" y1="126" x2="678" y2="270" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f8ffff"/>
+      <stop offset="0.44" stop-color="#aacad1"/>
+      <stop offset="1" stop-color="#536978"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="768" height="1024" fill="url(#bg)"/>
+  <path d="M86 816 C230 704 492 700 682 816 L682 1024 L86 1024 Z" fill="#050708"/>
+  <path d="M126 790 L586 234" stroke="url(#shaft)" stroke-width="24" stroke-linecap="round"/>
+  <path d="M552 150 L680 108 L642 242 L586 234 Z" fill="url(#point)"/>
+  <path d="M572 188 L650 132 L624 224 Z" fill="#141a20" opacity="0.32"/>
+  <path d="M252 612 L352 518 L462 570 L456 724 L322 750 Z" fill="#152119"/>
+  <path d="M304 574 L438 604 L422 710 L318 714 Z" fill="#334d39"/>
+  <path d="M194 786 C254 704 350 658 468 650" fill="none" stroke="#98e69b" stroke-width="11" stroke-linecap="round" opacity="0.82" filter="url(#glow)"/>
+  <circle cx="494" cy="630" r="52" fill="none" stroke="#70a9ff" stroke-width="7" opacity="0.78"/>
+  <path d="M450 630 L538 630 M494 586 L494 674" stroke="#70a9ff" stroke-width="4" opacity="0.82"/>
+  <circle cx="262" cy="714" r="78" fill="none" stroke="#98e69b" stroke-width="5" opacity="0.4"/>
+  <path d="M112 426 C210 346 324 322 452 354 C350 386 266 446 192 540 Z" fill="#1a2c24" opacity="0.66"/>
+</svg>

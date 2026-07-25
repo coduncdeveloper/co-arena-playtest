@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 768 1024" role="img" aria-label="One-hand axe crossflow card art">
+  <defs>
+    <radialGradient id="bg" cx="52%" cy="34%" r="74%">
+      <stop offset="0" stop-color="#4c1d22"/>
+      <stop offset="0.48" stop-color="#171018"/>
+      <stop offset="1" stop-color="#030407"/>
+    </radialGradient>
+    <linearGradient id="steel" x1="220" y1="214" x2="588" y2="544" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f5e6c7"/>
+      <stop offset="0.44" stop-color="#b5a58f"/>
+      <stop offset="1" stop-color="#493b38"/>
+    </linearGradient>
+    <linearGradient id="blood" x1="160" y1="368" x2="642" y2="786" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff967f"/>
+      <stop offset="0.54" stop-color="#b52f2a"/>
+      <stop offset="1" stop-color="#3a0d12"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="768" height="1024" fill="url(#bg)"/>
+  <path d="M98 816 C238 704 462 714 654 816 L654 1024 L98 1024 Z" fill="#060608"/>
+  <path d="M244 730 L448 276 L502 306 L304 764 Z" fill="#251a16"/>
+  <path d="M420 240 C562 222 640 312 624 432 C548 402 472 418 420 494 C380 408 354 306 420 240 Z" fill="url(#steel)"/>
+  <path d="M444 284 C532 282 584 334 586 396 C520 380 462 404 428 456 C408 396 396 326 444 284 Z" fill="#120d10" opacity="0.42"/>
+  <path d="M194 618 C276 538 384 516 490 548 C374 596 312 674 278 804 C230 758 190 692 194 618 Z" fill="#171015"/>
+  <path d="M188 610 C302 552 446 572 594 680" fill="none" stroke="url(#blood)" stroke-width="16" stroke-linecap="round" opacity="0.8" filter="url(#glow)"/>
+  <path d="M498 534 C552 558 592 612 606 688" fill="none" stroke="#ff967f" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="572" cy="690" r="48" fill="none" stroke="#70a9ff" stroke-width="7" opacity="0.78"/>
+  <path d="M532 690 L612 690 M572 650 L572 730" stroke="#70a9ff" stroke-width="4" opacity="0.8"/>
+  <circle cx="272" cy="550" r="74" fill="none" stroke="#98e69b" stroke-width="5" opacity="0.42"/>
+  <path d="M154 398 L236 366 L312 420 L246 466 Z" fill="#4b1619" opacity="0.72"/>
+</svg>

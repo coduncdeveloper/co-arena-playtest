@@ -1,0 +1,12 @@
+<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="badgeFill" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(14 10) rotate(90) scale(18)">
+      <stop stop-color="#FFF3C2"/>
+      <stop offset="0.55" stop-color="#F2D27B"/>
+      <stop offset="1" stop-color="#9A7440"/>
+    </radialGradient>
+  </defs>
+  <circle cx="14" cy="14" r="13" fill="#120D08" stroke="url(#badgeFill)" stroke-width="2"/>
+  <circle cx="14" cy="14" r="9.5" stroke="#F6D98A" stroke-opacity="0.45"/>
+  <path d="M14 6L16.6 11.2L22 14L16.6 16.8L14 22L11.4 16.8L6 14L11.4 11.2L14 6Z" fill="url(#badgeFill)" fill-opacity="0.9"/>
+</svg>

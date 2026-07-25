@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="index,follow" />
+  <title>Iron Oath Credits</title>
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="description" content="Credits and third-party attributions for Iron Oath — music, fonts, and technology." />
+  <style>
+    :root {
+      --ink: #07090f; --panel: #0d111a; --line: rgba(242,210,123,0.18);
+      --gold: #f2d27b; --gold-bright: #fff0bd; --bone: #d9d2c2; --bone-dim: #9a9382;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(242,210,123,0.06), transparent 45%),
+        linear-gradient(180deg, #0a0c11 0%, #07090f 60%, #04050a 100%);
+      color: var(--bone);
+      font-family: Georgia, 'Times New Roman', serif;
+      line-height: 1.6; min-height: 100vh;
+      padding: 48px 20px 80px;
+    }
+    .wrap { max-width: 720px; margin: 0 auto; }
+    .eyebrow { color: var(--bone-dim); font-family: system-ui, sans-serif; font-size: 12px;
+      letter-spacing: 0.28em; text-transform: uppercase; margin: 0 0 6px; }
+    h1 { color: var(--gold-bright); font-size: 30px; letter-spacing: 0.04em; margin: 0 0 6px;
+      text-transform: uppercase; font-family: system-ui, sans-serif; }
+    .updated { color: var(--bone-dim); font-size: 13px; font-style: italic; margin: 0 0 28px; }
+    .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+      padding: 20px 22px; margin: 0 0 18px; }
+    h2 { color: var(--gold); font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase;
+      font-family: system-ui, sans-serif; margin: 0 0 10px; }
+    p { margin: 0 0 12px; }
+    ul { margin: 0 0 4px; padding-left: 22px; }
+    li { margin: 0 0 7px; }
+    a { color: var(--gold); }
+    a:hover { color: var(--gold-bright); }
+    .muted { color: var(--bone-dim); font-size: 14px; }
+    footer { color: var(--bone-dim); font-size: 13px; margin-top: 28px; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="eyebrow">Iron Oath</p>
+    <h1>Credits</h1>
+    <p class="updated">Third-party attributions &amp; licenses</p>
+
+    <div class="panel">
+      <h2>Game</h2>
+      <p>Design, code, balance, QA, integration, art direction, and launch production: the Iron
+      Oath project owner, with AI assistance.</p>
+      <p class="muted">Visual art is AI-generated and human-curated for Iron Oath — directed,
+      evaluated, selected, cropped/resized where needed, and integrated by hand, with transparent
+      AI disclosure and the appropriate generative-art tag where the store requires it.</p>
+    </div>
+
+    <div class="panel">
+      <h2>Music</h2>
+      <p>Launch music loops are sourced from OpenGameArt and listed as CC0. Attribution is not
+      required for CC0, but is credited here for transparency and courtesy.</p>
+      <ul>
+        <li>"Dark Shrine Loop" by qubodup, a slight remix of yd's "Shrine" —
+          <a href="https://opengameart.org/content/dark-shrine-loop">opengameart.org</a></li>
+        <li>"Dungeon Ambience" by yd —
+          <a href="https://opengameart.org/content/dungeon-ambience">opengameart.org</a></li>
+        <li>"Dark Place (loop)" by SkyleTheFrench —
+          <a href="https://opengameart.org/content/dark-place-loop">opengameart.org</a></li>
+        <li>"Heavy Boss Battle 1" by MintoDog —
+          <a href="https://opengameart.org/content/heavy-boss-battle-1">opengameart.org</a></li>
+      </ul>
+    </div>
+
+    <div class="panel">
+      <h2>Fonts</h2>
+      <p>The interface is designed around the Cinzel, Cormorant Garamond, and Inter typefaces,
+      each licensed under the SIL Open Font License 1.1. (The game build itself does not bundle
+      the font binaries — the families are named in CSS with system fallbacks.) Authoritative
+      license texts:</p>
+      <ul>
+        <li>Cinzel (<code>@fontsource/cinzel</code>) — <a href="/licenses/OFL-cinzel.txt">OFL 1.1</a></li>
+        <li>Cormorant Garamond (<code>@fontsource/cormorant-garamond</code>) — <a href="/licenses/OFL-cormorant-garamond.txt">OFL 1.1</a></li>
+        <li>Inter (<code>@fontsource/inter</code>) — <a href="/licenses/OFL-inter.txt">OFL 1.1</a></li>
+      </ul>
+    </div>
+
+    <div class="panel">
+      <h2>Backend services</h2>
+      <p>Supabase — authentication, profiles, run telemetry, account-deletion RPC, and
+      leaderboard/database hosting for optional account features.</p>
+    </div>
+
+    <div class="panel">
+      <h2>Technology</h2>
+      <ul>
+        <li>Phaser 3.90.0 — MIT License — <a href="https://phaser.io">phaser.io</a></li>
+        <li>rot-js 2.2.1 — BSD-3-Clause License (installed dependency, not used by the launch runtime)</li>
+        <li>Vite, TypeScript, ESLint, and related tooling — build/development tooling</li>
+      </ul>
+      <p class="muted">Remotion is present as development/video tooling, not part of the browser
+      game runtime, and is used under its own license model.</p>
+    </div>
+
+    <footer>
+      <a href="/privacy.html">Privacy</a> &middot;
+      <a href="/delete-account.html">Account Deletion</a> &middot;
+      <a href="/licenses/README.txt">Font Licenses (OFL 1.1)</a>
+    </footer>
+  </div>
+</body>
+</html>

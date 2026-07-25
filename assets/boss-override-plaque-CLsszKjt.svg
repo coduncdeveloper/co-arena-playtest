@@ -1,0 +1,13 @@
+<svg width="28" height="240" viewBox="0 0 28 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="plaqueFill" x1="14" y1="0" x2="14" y2="240" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF3C2"/>
+      <stop offset="0.3" stop-color="#DAB56A"/>
+      <stop offset="0.75" stop-color="#8B6336"/>
+      <stop offset="1" stop-color="#5E4221"/>
+    </linearGradient>
+  </defs>
+  <rect x="3" y="3" width="22" height="234" rx="10" fill="#120D08" stroke="url(#plaqueFill)" stroke-width="2"/>
+  <path d="M8 28H20M8 212H20M10 44H18M10 76H18M10 108H18M10 140H18M10 172H18" stroke="#F6D98A" stroke-opacity="0.38" stroke-linecap="round"/>
+  <path d="M14 28V212" stroke="#F6D98A" stroke-opacity="0.22"/>
+</svg>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="index,follow" />
+  <title>Delete Your Iron Oath Account</title>
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="description" content="How to delete your Iron Oath account and what data is removed." />
+  <style>
+    :root {
+      --ink: #07090f; --panel: #0d111a; --line: rgba(242,210,123,0.18);
+      --gold: #f2d27b; --gold-bright: #fff0bd; --bone: #d9d2c2; --bone-dim: #9a9382;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(242,210,123,0.06), transparent 45%),
+        linear-gradient(180deg, #0a0c11 0%, #07090f 60%, #04050a 100%);
+      color: var(--bone);
+      font-family: Georgia, 'Times New Roman', serif;
+      line-height: 1.6; min-height: 100vh;
+      padding: 48px 20px 80px;
+    }
+    .wrap { max-width: 720px; margin: 0 auto; }
+    .eyebrow { color: var(--bone-dim); font-family: system-ui, sans-serif; font-size: 12px;
+      letter-spacing: 0.28em; text-transform: uppercase; margin: 0 0 6px; }
+    h1 { color: var(--gold-bright); font-size: 30px; letter-spacing: 0.04em; margin: 0 0 6px;
+      text-transform: uppercase; font-family: system-ui, sans-serif; }
+    .updated { color: var(--bone-dim); font-size: 13px; font-style: italic; margin: 0 0 28px; }
+    .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+      padding: 20px 22px; margin: 0 0 18px; }
+    h2 { color: var(--gold); font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase;
+      font-family: system-ui, sans-serif; margin: 0 0 10px; }
+    p { margin: 0 0 12px; }
+    ol, ul { margin: 0 0 4px; padding-left: 22px; }
+    li { margin: 0 0 7px; }
+    a { color: var(--gold); }
+    a:hover { color: var(--gold-bright); }
+    .muted { color: var(--bone-dim); font-size: 14px; }
+    .mail { font-family: system-ui, sans-serif; font-weight: 600; }
+    code { background: rgba(255,255,255,0.05); border: 1px solid var(--line);
+      border-radius: 4px; padding: 1px 6px; font-size: 13px; }
+    footer { color: var(--bone-dim); font-size: 13px; margin-top: 28px; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="eyebrow">Iron Oath</p>
+    <h1>Delete Your Account</h1>
+    <p class="updated">Last updated: June 23, 2026</p>
+
+    <p>This page explains how to delete your Iron Oath account and exactly what data is
+    removed. Account deletion is permanent. (Playing as a guest does not create an account —
+    guest progress lives only in your browser/device and is never uploaded.)</p>
+
+    <div class="panel">
+      <h2>Delete from within the game (fastest)</h2>
+      <ol>
+        <li>Open Iron Oath and make sure you're signed in.</li>
+        <li>Go to <strong>Account</strong> (the profile button), then the <strong>Account</strong> tab.</li>
+        <li>Under <strong>Danger Zone</strong>, optionally tick "Clear local saves and settings after deletion," then press <strong>Delete Account</strong>.</li>
+        <li>Press <strong>Delete Account</strong> again to confirm. Your account and data are removed immediately and you are signed out.</li>
+      </ol>
+      <p class="muted">You can also export a copy of your data first via <strong>Export Data</strong> on the same screen.</p>
+    </div>
+
+    <div class="panel">
+      <h2>No longer have the game installed?</h2>
+      <p>Email <a class="mail" href="mailto:coduncdeveloper@gmail.com?subject=Iron%20Oath%20account%20deletion%20request">coduncdeveloper@gmail.com</a>
+      from (or naming) the email address on your account, with the subject
+      "Iron Oath account deletion request." We will delete the account and confirm by reply.</p>
+    </div>
+
+    <div class="panel">
+      <h2>What gets deleted</h2>
+      <ul>
+        <li>Your public profile row — username, bio, avatar, and equipped cosmetics.</li>
+        <li>All of your signed-in run records and run-summary data (oath, outcome, map reached, duration, scars, mastery, daily-challenge dates, completion times).</li>
+        <li>Your gameplay telemetry events tied to the account.</li>
+        <li>Your authentication record (the Supabase Auth user / email sign-in), where the database permits it. If automatic auth-record removal is blocked, we complete it manually on request.</li>
+        <li>Optionally, your on-device saves, settings, and unlock progress — only if you tick "Clear local saves" during deletion (or clear your browser storage yourself).</li>
+      </ul>
+    </div>
+
+    <div class="panel">
+      <h2>What we keep</h2>
+      <p>Nothing that identifies you. After deletion there is no profile, no run history, and
+      no telemetry tied to your account. We do not sell data or retain personal data for
+      marketing.</p>
+    </div>
+
+    <div class="panel">
+      <h2>How long it takes</h2>
+      <p>In-app deletion is <strong>immediate</strong>. Email requests are completed within
+      <strong>30 days</strong> (typically much sooner).</p>
+    </div>
+
+    <footer>
+      See also our <a href="/privacy.html">Privacy Notice</a> &middot;
+      Contact <a href="mailto:coduncdeveloper@gmail.com">coduncdeveloper@gmail.com</a>
+    </footer>
+  </div>
+</body>
+</html>

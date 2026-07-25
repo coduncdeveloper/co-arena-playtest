@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2304070d'/%3E%3Cpath d='M18 49 44 15l4 4-26 34z' fill='%23f2d27b'/%3E%3Cpath d='M16 17l31 31' stroke='%2382b7ff' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E" />
+    <title>Iron Oath</title>
+    <style>
+      /* Safe-area groundwork (M2): env() only resolves once viewport-fit=cover
+         is set (above). Mobile/notch-aware UI consumes these vars instead of
+         calling env() directly, so the fallback lives in one place. */
+      :root {
+        --safe-area-top: env(safe-area-inset-top, 0px);
+        --safe-area-right: env(safe-area-inset-right, 0px);
+        --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+        --safe-area-left: env(safe-area-inset-left, 0px);
+      }
+
+      html.iron-oath-touch-blocked,
+      html.iron-oath-touch-blocked body {
+        width: 100%;
+        min-height: 100%;
+        margin: 0;
+        overflow: hidden;
+        background: #020306;
+      }
+
+      #iron-oath-desktop-only[hidden] {
+        display: none;
+      }
+
+      #iron-oath-desktop-only {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: grid;
+        place-items: center;
+        min-height: 100vh;
+        padding: 24px;
+        box-sizing: border-box;
+        color: #dfe7f5;
+        background:
+          radial-gradient(circle at 50% 18%, rgba(185, 154, 85, 0.18), transparent 34%),
+          linear-gradient(135deg, rgba(12, 19, 29, 0.98), rgba(2, 3, 6, 0.98) 58%, rgba(0, 0, 0, 1));
+        font-family: Cinzel, Constantia, Cambria, Georgia, serif;
+        text-align: center;
+      }
+
+      #iron-oath-desktop-only::before {
+        content: "";
+        position: absolute;
+        inset: 18px;
+        border: 1px solid rgba(185, 154, 85, 0.58);
+        box-shadow:
+          inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+          0 0 48px rgba(185, 154, 85, 0.12);
+        pointer-events: none;
+      }
+
+      .iron-oath-desktop-only__panel {
+        position: relative;
+        width: min(620px, calc(100vw - 48px));
+        padding: 42px 34px 32px;
+        border: 1px solid rgba(185, 154, 85, 0.72);
+        background:
+          linear-gradient(160deg, rgba(15, 25, 38, 0.94), rgba(2, 3, 6, 0.94)),
+          #05070b;
+        box-shadow: 0 18px 80px rgba(0, 0, 0, 0.62);
+      }
+
+      .iron-oath-desktop-only__eyebrow {
+        margin: 0 0 8px;
+        color: #b9c4d3;
+        font: 600 12px Inter, "Segoe UI", Arial, sans-serif;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .iron-oath-desktop-only__title {
+        margin: 0;
+        color: #fff0bd;
+        font-size: clamp(38px, 11vw, 72px);
+        line-height: 0.95;
+        text-shadow: 0 2px 0 #05070b, 0 0 18px rgba(242, 210, 123, 0.22);
+      }
+
+      .iron-oath-desktop-only__body {
+        margin: 20px auto 0;
+        max-width: 480px;
+        color: #f2f7ff;
+        font: 600 19px Inter, "Segoe UI", Arial, sans-serif;
+        line-height: 1.45;
+      }
+
+      .iron-oath-desktop-only__note {
+        margin: 14px auto 0;
+        max-width: 500px;
+        color: #b9c4d3;
+        font: 400 14px Inter, "Segoe UI", Arial, sans-serif;
+        line-height: 1.55;
+      }
+
+      #iron-oath-desktop-override {
+        margin-top: 30px;
+        padding: 0;
+        border: 0;
+        color: #f0d28f;
+        background: transparent;
+        font: 600 13px Inter, "Segoe UI", Arial, sans-serif;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+        cursor: pointer;
+      }
+
+      #iron-oath-desktop-override:focus-visible {
+        outline: 2px solid #f0d28f;
+        outline-offset: 6px;
+      }
+
+      html.iron-oath-touch-blocked #game {
+        display: none;
+      }
+
+      /* Boot placeholder — visible while the JS bundle downloads on first
+         visit; React's createRoot render replaces it. Lives INSIDE #game so
+         the touch-block display:none rule covers it too. */
+      .iron-oath-boot {
+        position: fixed;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        background: #020306;
+        text-align: center;
+      }
+
+      .iron-oath-boot__eyebrow {
+        margin: 0;
+        font-family: Cinzel, Constantia, Cambria, Georgia, serif;
+        font-size: 11px;
+        letter-spacing: 0.34em;
+        text-transform: uppercase;
+        color: #b9c4d3;
+        opacity: 0.7;
+      }
+
+      .iron-oath-boot__title {
+        margin: 10px 0 0;
+        font-family: Cinzel, Constantia, Cambria, Georgia, serif;
+        font-size: 44px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #fff0bd;
+        text-shadow: 0 0 28px rgba(240, 210, 143, 0.35);
+      }
+
+      .iron-oath-boot__note {
+        margin: 14px 0 0;
+        font-family: Georgia, serif;
+        font-style: italic;
+        font-size: 14px;
+        color: #b9c4d3;
+        animation: iron-oath-boot-pulse 1.6s ease-in-out infinite;
+      }
+
+      @keyframes iron-oath-boot-pulse {
+        0%, 100% { opacity: 0.45; }
+        50% { opacity: 1; }
+      }
+    </style>
+    <script type="module" crossorigin src="./assets/index-DT3qTJsw.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/rolldown-runtime-BYbx6iT9.js">
+    <link rel="modulepreload" crossorigin href="./assets/preload-helper-Chd9yIcd.js">
+    <link rel="modulepreload" crossorigin href="./assets/marked-no-surrender-CzZx5etH.js">
+    <link rel="modulepreload" crossorigin href="./assets/enemy-ash-bannerman-CI76jGiZ.js">
+    <link rel="modulepreload" crossorigin href="./assets/enemy-oath-captain-B5kpanFI.js">
+    <link rel="modulepreload" crossorigin href="./assets/weaponPalette-BihwfKRC.js">
+    <link rel="modulepreload" crossorigin href="./assets/telemetryService-DP4pycbu.js">
+    <link rel="modulepreload" crossorigin href="./assets/backStack-D--IRzhe.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-vendor-Dez-zW2_.js">
+    <link rel="stylesheet" crossorigin href="./assets/index-BDvHP7dN.css">
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+<style>
+  #pt-gate {
+    position: fixed; inset: 0; z-index: 2147483647;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+    background: #04070d; color: #f2d27b;
+    font-family: ui-serif, Georgia, serif; text-align: center; padding: 24px;
+  }
+  #pt-gate h1 { font-size: 22px; letter-spacing: .18em; text-transform: uppercase; margin: 0 0 6px; font-weight: 500; }
+  #pt-gate p { color: #7d8899; font-size: 13px; margin: 0 0 28px; font-family: ui-sans-serif, system-ui, sans-serif; }
+  #pt-gate input {
+    background: #0b1018; border: 1px solid #2a3547; color: #e8eef7;
+    padding: 13px 16px; font-size: 16px; border-radius: 6px; width: min(280px, 78vw);
+    text-align: center; letter-spacing: .08em; outline: none;
+  }
+  #pt-gate input:focus { border-color: #f2d27b; }
+  #pt-gate button {
+    margin-top: 14px; background: #f2d27b; color: #04070d; border: 0;
+    padding: 13px 34px; font-size: 15px; border-radius: 6px; cursor: pointer;
+    letter-spacing: .1em; text-transform: uppercase; font-weight: 600;
+  }
+  #pt-err { color: #d9705f; font-size: 13px; height: 18px; margin-top: 12px;
+            font-family: ui-sans-serif, system-ui, sans-serif; }
+</style>
+<script>
+  (function () {
+    var KEY = 'pt-gate-ok';
+    if (sessionStorage.getItem(KEY) === '1') return;
+
+    // Silence audio until the gate clears so the menu track can't play behind it.
+    try { document.documentElement.setAttribute('data-pt-gated', '1'); } catch (e) {}
+
+    function mount() {
+      var g = document.createElement('div');
+      g.id = 'pt-gate';
+      g.innerHTML =
+        '<h1>Iron Oath</h1>' +
+        '<p>Private playtest build</p>' +
+        '<input id="pt-in" type="password" autocomplete="off" autocapitalize="off" ' +
+        'autocorrect="off" spellcheck="false" placeholder="passphrase" />' +
+        '<button id="pt-go">Enter</button>' +
+        '<div id="pt-err"></div>';
+      document.body.appendChild(g);
+
+      var input = g.querySelector('#pt-in');
+      var err = g.querySelector('#pt-err');
+
+      function tryOpen() {
+        if (input.value.trim() === 'CapeWow') {
+          sessionStorage.setItem(KEY, '1');
+          document.documentElement.removeAttribute('data-pt-gated');
+          g.remove();
+        } else {
+          err.textContent = 'Not that one.';
+          input.value = '';
+          input.focus();
+        }
+      }
+
+      g.querySelector('#pt-go').addEventListener('click', tryOpen);
+      // Enter/Go: match on key OR keyCode — mobile keyboards and some
+      // browsers report these differently, and a passphrase box that
+      // ignores the Go key reads as "the password doesn't work".
+      function onKey(e) {
+        if (e.key === 'Enter' || e.keyCode === 13 || e.which === 13) {
+          e.preventDefault();
+          tryOpen();
+        }
+      }
+      input.addEventListener('keydown', onKey);
+      input.addEventListener('keyup', function (e) {
+        if ((e.key === 'Enter' || e.keyCode === 13) && document.getElementById('pt-gate')) onKey(e);
+      });
+      setTimeout(function () { input.focus(); }, 80);
+    }
+
+    if (document.body) mount();
+    else document.addEventListener('DOMContentLoaded', mount);
+  })();
+</script>
+
+  </head>
+  <body>
+    <div id="iron-oath-desktop-only" hidden>
+      <section class="iron-oath-desktop-only__panel" aria-labelledby="iron-oath-desktop-title">
+        <p class="iron-oath-desktop-only__eyebrow">Built for the Big Screen</p>
+        <h1 id="iron-oath-desktop-title" class="iron-oath-desktop-only__title">Iron Oath</h1>
+        <p class="iron-oath-desktop-only__body">A tactical deckbuilder crafted for desktop play.</p>
+        <p class="iron-oath-desktop-only__note">
+          Open this page on a desktop browser to play the web version &mdash; dedicated mobile apps are on the way.
+        </p>
+        <button id="iron-oath-desktop-override" type="button">Continue here anyway</button>
+      </section>
+    </div>
+    <div id="game">
+      <div class="iron-oath-boot">
+        <div>
+          <p class="iron-oath-boot__eyebrow">Dark Fantasy Deckbuilder</p>
+          <h1 class="iron-oath-boot__title">Iron Oath</h1>
+          <p class="iron-oath-boot__note">Forging the oath…</p>
+        </div>
+      </div>
+    </div>
+    <script>
+      (function () {
+        // This script must stay synchronous (not deferred): the class-add below
+        // has to land before first paint or blocked touch-web devices flash the
+        // game boot screen. To keep it cheap on the boot-critical paths (native
+        // app, desktop), the three gate checks — all pure reads with no side
+        // effects — run cheapest-first and short-circuit, and DOM lookups only
+        // happen on the rare blocked path.
+        var overrideKey = 'iron-oath-desktop-override-v1';
+
+        // The Capacitor native shell (the Android/iOS app) IS the intended mobile
+        // target, so never show the desktop-only touch block there. Mobile WEB
+        // still gets the block — the Capacitor global is absent in a browser.
+        // (The bridge injects window.Capacitor before page scripts run, so this
+        // synchronous read is safe — same timing the original relied on.)
+        function isCapacitorNative() {
+          return !!(window.Capacitor && typeof window.Capacitor.isNativePlatform === 'function' && window.Capacitor.isNativePlatform());
+        }
+
+        function isTouchFirstDevice() {
+          var maxTouchPoints = navigator.maxTouchPoints || navigator.msMaxTouchPoints || 0;
+          var hasTouch = 'ontouchstart' in window || maxTouchPoints > 0;
+          if (!hasTouch) {
+            // Desktop fast path: no touch means never touch-first — skip the
+            // UA regexes and viewport reads entirely.
+            return false;
+          }
+          var userAgent = navigator.userAgent || '';
+          var mobileOrTabletUa = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|Tablet|Kindle|Silk|PlayBook/i.test(userAgent);
+          var ipadDesktopMode = /Macintosh/i.test(userAgent) && maxTouchPoints > 1;
+          // window.innerWidth is a viewport metric (no forced layout); the
+          // clientWidth fallback (which can force layout) only evaluates when
+          // innerWidth is unavailable/0.
+          var viewportWidth = window.innerWidth || document.documentElement.clientWidth || 0;
+          // 1024 is deliberately LOOSER than the in-game compact breakpoint
+          // (COMPACT_MAX_WIDTH = 760 in src/react/hooks/useLayoutMode.ts):
+          // this gate filters touch-first WEB entry (tablets included), while
+          // 760 only picks which layout an allowed device renders. The two
+          // thresholds are independent — change them independently.
+          var narrowViewport = viewportWidth > 0 && viewportWidth < 1024;
+          return mobileOrTabletUa || ipadDesktopMode || narrowViewport;
+        }
+
+        // Synchronous localStorage read, but only reached on touch-first WEB
+        // devices (native + desktop short-circuit before it). It must stay
+        // sync there: deciding without it would flash the block screen for
+        // users who already chose "continue anyway".
+        function storageAllowsOverride() {
+          try {
+            return window.localStorage.getItem(overrideKey) === 'true';
+          } catch (_error) {
+            return false;
+          }
+        }
+
+        function persistOverride() {
+          try {
+            window.localStorage.setItem(overrideKey, 'true');
+          } catch (_error) {
+            /* The reload still gives the user another chance if storage is blocked. */
+          }
+        }
+
+        if (isCapacitorNative() || !isTouchFirstDevice() || storageAllowsOverride()) {
+          return; // common path: no DOM queries, no gate
+        }
+
+        window.__IRON_OATH_TOUCH_BLOCKED__ = true;
+        document.documentElement.classList.add('iron-oath-touch-blocked');
+        var overlay = document.getElementById('iron-oath-desktop-only');
+        var override = document.getElementById('iron-oath-desktop-override');
+        if (overlay) {
+          overlay.hidden = false;
+          overlay.setAttribute('role', 'dialog');
+          overlay.setAttribute('aria-modal', 'true');
+        }
+        if (override) {
+          override.addEventListener('click', function () {
+            persistOverride();
+            window.location.reload();
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 768 1024" role="img" aria-label="Greatsword crossflow card art">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="36%" r="70%">
+      <stop offset="0" stop-color="#2c4052"/>
+      <stop offset="0.48" stop-color="#121720"/>
+      <stop offset="1" stop-color="#030509"/>
+    </radialGradient>
+    <linearGradient id="blade" x1="168" y1="214" x2="650" y2="688" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f3fbff"/>
+      <stop offset="0.48" stop-color="#9cb7c7"/>
+      <stop offset="1" stop-color="#384a5f"/>
+    </linearGradient>
+    <linearGradient id="ember" x1="216" y1="742" x2="566" y2="858" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f0d28f"/>
+      <stop offset="1" stop-color="#c55738"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="768" height="1024" fill="url(#bg)"/>
+  <path d="M90 806 C246 716 500 710 678 802 L678 1024 L90 1024 Z" fill="#07090d"/>
+  <path d="M92 304 C210 214 326 188 484 222 C376 252 284 306 200 402 Z" fill="#1c2935" opacity="0.72"/>
+  <path d="M154 704 C260 568 426 426 630 302 C472 470 326 614 222 764 Z" fill="url(#blade)"/>
+  <path d="M132 744 C260 590 432 424 656 270" fill="none" stroke="#dce5f4" stroke-width="15" stroke-linecap="round" opacity="0.66"/>
+  <path d="M352 434 L452 526 L408 650 L294 652 L246 526 Z" fill="#1b222d"/>
+  <path d="M302 478 L420 540 L396 626 L286 622 Z" fill="#465668"/>
+  <path d="M278 656 L188 814 L292 798 L368 664 Z" fill="#111820"/>
+  <path d="M420 654 L536 818 L626 784 L474 638 Z" fill="#10151d"/>
+  <circle cx="414" cy="512" r="124" fill="none" stroke="#98e69b" stroke-width="6" opacity="0.46" filter="url(#glow)"/>
+  <circle cx="598" cy="304" r="42" fill="none" stroke="#70a9ff" stroke-width="7" opacity="0.75"/>
+  <path d="M560 304 L636 304 M598 266 L598 342" stroke="#70a9ff" stroke-width="4" opacity="0.82"/>
+  <path d="M170 820 C286 756 432 760 594 838" fill="none" stroke="url(#ember)" stroke-width="10" opacity="0.8" filter="url(#glow)"/>
+</svg>

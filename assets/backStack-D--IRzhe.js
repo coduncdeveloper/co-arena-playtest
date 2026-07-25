@@ -1,0 +1,1 @@
+var e=[];function t(t){e.push(t);let n=!0;return()=>{if(!n)return;n=!1;let r=e.lastIndexOf(t);r>=0&&e.splice(r,1)}}function n(){let t=e.pop();return t?(t(),!0):!1}function r(){return e.length}export{n,t as r,r as t};

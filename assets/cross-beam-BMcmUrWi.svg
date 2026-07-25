@@ -1,0 +1,17 @@
+<svg width="300" height="36" viewBox="0 0 300 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="beamBase" x1="0" y1="18" x2="300" y2="18" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#241A0E"/>
+      <stop offset="0.5" stop-color="#5B4A2A"/>
+      <stop offset="1" stop-color="#241A0E"/>
+    </linearGradient>
+    <linearGradient id="beamSheen" x1="0" y1="18" x2="300" y2="18" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F2D27B" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#F2D27B" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#F2D27B" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="9" width="296" height="18" rx="9" fill="url(#beamBase)"/>
+  <rect x="2.5" y="9.5" width="295" height="17" rx="8.5" stroke="#B99A55" stroke-opacity="0.36"/>
+  <path d="M14 11H286" stroke="#F2D27B" stroke-opacity="0.18" stroke-width="1"/>
+</svg>
