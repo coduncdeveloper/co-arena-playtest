@@ -14,7 +14,7 @@
 #   node -e 'const f=require("fs"),c=require("crypto");const m=f.readFileSync("index.html","utf8").match(/<script>([\s\S]*?)<\/script>/);console.log("sha256-"+c.createHash("sha256").update(m[1]).digest("base64"))'
 
 /*
-  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; img-src 'self' data: blob:; font-src 'self' data:; style-src 'self' 'unsafe-inline'; media-src 'self' data: blob:; worker-src 'self' blob:; connect-src 'self' https: wss:; script-src 'self' 'wasm-unsafe-eval' 'sha256-OtB4o1T8iQT+DubJ68BB2wjZLCX8aMjxdo77XB44gLE='; manifest-src 'self'
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; img-src 'self' data: blob:; font-src 'self' data:; style-src 'self' 'unsafe-inline'; media-src 'self' data: blob:; worker-src 'self' blob:; connect-src 'self' https: wss:; script-src 'self' 'wasm-unsafe-eval' 'sha256-08AoJoYt6znPGWe07DmiXSHezUU7JMvXTLHOJCN5oeQ='; manifest-src 'self'
   X-Content-Type-Options: nosniff
   Referrer-Policy: no-referrer
   X-Frame-Options: DENY

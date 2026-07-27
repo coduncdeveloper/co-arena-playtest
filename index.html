@@ -7,6 +7,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2304070d'/%3E%3Cpath d='M18 49 44 15l4 4-26 34z' fill='%23f2d27b'/%3E%3Cpath d='M16 17l31 31' stroke='%2382b7ff' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E" />
     <title>Iron Oath</title>
+
+    <!-- HOME-SCREEN INSTALL (iOS "Add to Home Screen" / Android web install).
+         Two separate mechanisms, and only one of them is the manifest:
+
+         - Chrome/Edge/Android read manifest.webmanifest for name, icon, colours,
+           display mode and orientation.
+         - iOS Safari IGNORES most of the manifest and reads the apple-* <meta>
+           tags below instead. They are what actually produce the home-screen
+           icon and the chrome-less standalone launch on an iPhone. Deleting them
+           does not fall back to the manifest — it silently reverts to a Safari
+           bookmark with a screenshot for an icon.
+
+         Paths are root-absolute on purpose: these files live in public/, and
+         Vite's checkPublicFile rewrites them to the configured base (`./`) at
+         build time, so they resolve under a sub-path deploy (GitHub Pages
+         /co-arena-playtest/) as well as under file:// in the Steam build.
+
+         iOS does NOT honour the manifest's `orientation`, so a standalone launch
+         can still start in portrait. RotateInterstitial is the only guard there;
+         it keys off real touch hardware + a portrait media query, so it works in
+         standalone exactly as it does in Safari. Pinned by
+         tests/release/homeScreenInstall.test.mjs. -->
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Iron Oath" />
+    <meta name="theme-color" content="#04070d" />
+    <!-- Sizes are the real pixel dimensions of the existing icons (no 180×180
+         twin was invented for iOS — Safari downscales 184→180 itself). -->
+    <link rel="apple-touch-icon" sizes="184x184" href="./icon-184.png" />
+    <link rel="apple-touch-icon" sizes="512x512" href="./icon.png" />
+
     <style>
       /* Safe-area groundwork (M2): env() only resolves once viewport-fit=cover
          is set (above). Mobile/notch-aware UI consumes these vars instead of
@@ -169,7 +202,7 @@
         50% { opacity: 1; }
       }
     </style>
-    <script type="module" crossorigin src="./assets/index-CmwhPaXB.js"></script>
+    <script type="module" crossorigin src="./assets/index-ly767i0G.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/rolldown-runtime-BYbx6iT9.js">
     <link rel="modulepreload" crossorigin href="./assets/preload-helper-Chd9yIcd.js">
     <link rel="modulepreload" crossorigin href="./assets/marked-no-surrender-CAOwsEgO.js">
@@ -221,6 +254,24 @@
           return !!(window.Capacitor && typeof window.Capacitor.isNativePlatform === 'function' && window.Capacitor.isNativePlatform());
         }
 
+        // A home-screen launch is an INTENDED mobile target, exactly like the
+        // Capacitor shell — the player deliberately installed the game. Without
+        // this the iOS "Add to Home Screen" flow lands straight on the
+        // desktop-only block screen: navigator.standalone is not Capacitor, an
+        // iPhone is touch-first, and iOS gives a standalone web app its OWN
+        // storage container, so a "Continue here anyway" tapped earlier in
+        // Safari does NOT carry over. navigator.standalone is Safari's own
+        // signal (it predates and is the only one iOS sets); the display-mode
+        // query covers installed Chrome/Edge/Android web apps.
+        function isStandaloneLaunch() {
+          if (navigator.standalone === true) return true;
+          try {
+            return !!(window.matchMedia && window.matchMedia('(display-mode: standalone)').matches);
+          } catch (_error) {
+            return false;
+          }
+        }
+
         function isTouchFirstDevice() {
           var maxTouchPoints = navigator.maxTouchPoints || navigator.msMaxTouchPoints || 0;
           var hasTouch = 'ontouchstart' in window || maxTouchPoints > 0;
@@ -265,7 +316,10 @@
           }
         }
 
-        if (isCapacitorNative() || !isTouchFirstDevice() || storageAllowsOverride()) {
+        // Cheapest-first, and isStandaloneLaunch() sits AFTER the desktop
+        // short-circuit on purpose: a desktop boot never pays for its matchMedia
+        // call, while a touch device reaches it before the localStorage read.
+        if (isCapacitorNative() || !isTouchFirstDevice() || isStandaloneLaunch() || storageAllowsOverride()) {
           return; // common path: no DOM queries, no gate
         }
 
