@@ -1,0 +1,1 @@
+var e=``+new URL(`shrine-BlYc_btX.png`,import.meta.url).href;export{e as t};
