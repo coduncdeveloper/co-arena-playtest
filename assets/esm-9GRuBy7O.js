@@ -1,0 +1,2 @@
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["./web-BptrBfIj.js","./dist-CL7LUD-R.js"])))=>i.map(i=>d[i]);
+import{t as e}from"./preload-helper-Chd9yIcd.js";import{n as t}from"./dist-CL7LUD-R.js";var n=t(`Preferences`,{web:()=>e(()=>import(`./web-BptrBfIj.js`).then(e=>new e.PreferencesWeb),__vite__mapDeps([0,1]),import.meta.url)});export{n as Preferences};
