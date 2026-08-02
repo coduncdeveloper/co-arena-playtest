@@ -1,10 +1,10 @@
 {
   "schema": 1,
   "shell": "web",
-  "configFingerprint": "60e5b53f183ac8f82b723465d0b470837fdc98125f25e4a6856f0a72c068f6da",
+  "configFingerprint": "67d7c58cf1f839154c85a7c4cbed56979a507cf1b0b0a8d1b4acb32f3b38ba65",
   "vars": [
     "VITE_SUPABASE_URL=4ee7c0037c4a7ca5",
     "VITE_SUPABASE_ANON_KEY=3e00737d47be259f",
-    "VITE_AUTH_REDIRECT_URL=2b1a4e710466ed8d"
+    "VITE_AUTH_REDIRECT_URL=fecd607609879a9c"
   ]
 }
