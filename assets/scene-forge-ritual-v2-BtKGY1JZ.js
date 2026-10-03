@@ -1,0 +1,1 @@
+var e=``+new URL(`scene-forge-ritual-v2-OTo-KCnw.webp`,import.meta.url).href;export{e as t};

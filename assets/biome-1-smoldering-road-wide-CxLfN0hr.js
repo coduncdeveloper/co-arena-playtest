@@ -1,0 +1,1 @@
+var e=``+new URL(`biome-1-smoldering-road-wide-Wi7pMCvX.webp`,import.meta.url).href;export{e as t};
