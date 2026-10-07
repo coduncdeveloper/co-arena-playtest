@@ -1,1 +1,0 @@
-import{Il as e,jl as t,rc as n}from"./index-B0gmuybI.js";function r(r,i,a){let o=Math.max(0,a??i.level??0),s=n(i),c=Math.max(0,e(t(r,o),s.filter(e=>e.id===`leaden_vow`).length,s.filter(e=>e.id===`iron_vow`).length)-Math.max(0,-(i.costModifier??0)));return{card:{...r,etchings:s},upgraded:o>0,level:o,costOverride:c}}export{r as t};
