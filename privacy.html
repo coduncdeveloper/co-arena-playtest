@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="index,follow" />
-  <title>Iron Oath Privacy Notice</title>
+  <title>Oath Ascendant Privacy Notice</title>
   <link rel="icon" href="./favicon.ico" />
-  <meta name="description" content="What data Iron Oath collects, what is public, retention, and how to export or delete it." />
+  <meta name="description" content="What data Oath Ascendant collects, what is public, retention, and how to export or delete it." />
   <style>
     :root {
       --ink: #07090f; --panel: #0d111a; --line: rgba(242,210,123,0.18);
@@ -44,62 +44,33 @@
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <p class="eyebrow">Iron Oath</p>
+  <main class="wrap">
     <h1>Privacy Notice</h1>
-    <p class="updated">Last updated: June 11, 2026</p>
-
-    <p>Iron Oath collects the minimum account data needed for optional accounts, profiles, run
-    telemetry, and leaderboards. Anonymous guest play stays local in your browser/device and
-    does not post run telemetry.</p>
-
-    <div class="panel">
-      <h2>What is collected</h2>
-      <ul>
-        <li>Email address through Supabase Auth (email sign-in), or your SteamID and public Steam
-        persona name when signing in through Steam.</li>
-        <li>Username.</li>
-        <li>Optional bio.</li>
-        <li>Avatar choice.</li>
-        <li>Signed-in run outcomes and run-summary data: oath, outcome, map reached, duration,
-        scars, mastery threshold, daily-challenge date, and completion time.</li>
-      </ul>
+    <p class="updated">Last updated: October 9, 2026</p>
+    <p>Oath Ascendant is developed by Team Fullsend. Accounts are optional where offline play is available. Guest campaign progress stays on the device. Feedback you choose to submit and automatic crash diagnostics can be sent even without an account.</p>
+    <div class="panel"><h2>Account and gameplay data</h2><ul>
+      <li>Email sign-in uses Supabase Auth. Steam sign-in uses a Steam authentication ticket verified through our backend, together with Steam identity and ownership information. The game does not receive your Steam password or payment details.</li>
+      <li>Account data includes an account ID, email where applicable, username, optional bio, avatar and equipped cosmetics.</li>
+      <li>Signed-in services store run summaries, account progression and Champion archives, achievements or cosmetic entitlements, competitive standings and related records. Profiles and leaderboards can display your chosen name, bio, avatar, run summaries and standing. Email is not shown on those public surfaces.</li>
+      <li>With <strong>Share usage and balance data</strong> enabled, signed-in play sends account-linked events: session and screen activity, run outcomes, reward choices and combat/balance summaries, with app/platform versions, timestamps and event/session IDs. These events are not anonymous. The setting is on by default; turning it off stops new collection and drops pending usage events on this device. Signed-out play does not queue usage or balance events.</li>
+    </ul></div>
+    <div class="panel"><h2>Feedback and diagnostics</h2><ul>
+      <li>Submitting feedback sends the report title and text, reporter name, account ID if signed in, screen/platform/version and viewport. An attached screenshot is uploaded to private Supabase storage. The local report can also contain the signed-in email; that email field is not included in the report upload.</li>
+      <li>Automatic crash diagnostics can send error text, stack traces, browser/device user agent, current screen and a limited run snapshot (such as class, floor, health and deck size). This diagnostic path is separate from the usage-data setting. Error text, screenshots or feedback may contain personal information, so avoid including unnecessary personal details in reports.</li>
+    </ul></div>
+    <div class="panel"><h2>Device storage and services</h2>
+      <p>Device storage holds saves, settings, local progression, report drafts and pending uploads. Authentication sessions are persisted in browser/Electron storage or native Capacitor Preferences. Steam Cloud can mirror supported saves and settings through the desktop wrapper.</p>
+      <p>Supabase provides authentication, database/RPC services and report screenshot storage. Valve provides Steam identity, ownership verification and Steam Cloud. Android and iOS use Capacitor as the native wrapper; the platform stores have their own privacy notices. The app source does not currently integrate advertising or an external analytics SDK.</p>
     </div>
-
-    <div class="panel">
-      <h2>What is public</h2>
-      <p>Leaderboard and profile surfaces may show your username, bio, avatar, run stats, and
-      recent run summaries. <strong>Email addresses are never shown publicly.</strong></p>
+    <div class="panel"><h2>Retention and deletion limits</h2>
+      <p>Account records remain until deleted. The in-game deletion service removes the profile, signed-in runs, cloud player saves, identity link and account-linked usage events, and attempts to remove the authentication user. Other account-dependent records are removed by database cascades when authentication deletion succeeds. A partial result must be retried or followed up with support.</p>
+      <p>Steam deletion retains a re-entry block record containing Steam identifiers, the synthetic Steam email, the former account ID and deletion date. Submitted feedback can remain with its account link removed, including the words, reporter name and screenshot; crash diagnostics and previously published competitive history can also remain. The current code does not configure automatic expiry for these retained records. Provider-side backups and operational logs require separate review. These limits are release review items; a final retention schedule has not yet been adopted.</p>
+      <p>Account-linked device cleanup preserves guest saves, other accounts, shared or legacy progress and settings. Ownership markers for retained shared progress remain on the device to prevent another account receiving that progress. Local campaign reset is a separate explicit action in Settings. Device storage controls can remove the app's remaining local data.</p>
     </div>
-
-    <div class="panel">
-      <h2>Retention</h2>
-      <p>Account data is retained until the account is deleted. Local guest saves, local run
-      history, settings, and unlock progress remain on your device unless you clear local data
-      during the deletion flow or clear browser storage yourself.</p>
+    <div class="panel"><h2>Export and requests</h2>
+      <p><strong>Export Profile &amp; Runs</strong> in Account downloads your server profile and run summaries as JSON. It is not a complete export of every account table. <strong>Export Save</strong> in Settings makes a device save backup. For other account data, retained feedback or deletion follow-up, contact <a href="mailto:coduncdeveloper@gmail.com">coduncdeveloper@gmail.com</a>. See <a href="./delete-account.html">Account Deletion</a> for the exact flow and limits.</p>
     </div>
-
-    <div class="panel">
-      <h2>Processor</h2>
-      <p>Supabase processes authentication, profile rows, run records, daily seeds, and
-      leaderboard views. Steam sign-in is handled through Valve's Steam OpenID service; the game
-      receives only your public SteamID and persona name from Valve — never your Steam password
-      or payment details.</p>
-    </div>
-
-    <div class="panel">
-      <h2>Export and delete</h2>
-      <p>Signed-in users can open <strong>Account Settings</strong> in the game to export their
-      profile and run data as JSON, and to delete their account. Deletion removes the public
-      profile row and signed-in run records, and attempts to delete the Supabase Auth user via
-      the configured database function; if the project does not permit that, contact the owner
-      for final Auth removal. Full steps: <a href="./delete-account.html">Delete Your Account</a>.</p>
-    </div>
-
-    <footer>
-      Contact <a class="mail" href="mailto:coduncdeveloper@gmail.com">coduncdeveloper@gmail.com</a> &middot;
-      See also <a href="./delete-account.html">Account Deletion</a> and <a href="./credits.html">Credits</a>
-    </footer>
-  </div>
+    <footer><a href="./delete-account.html">Account Deletion</a> &middot; <a href="./credits.html">Credits</a> &middot; <a class="mail" href="mailto:coduncdeveloper@gmail.com">coduncdeveloper@gmail.com</a></footer>
+  </main>
 </body>
 </html>

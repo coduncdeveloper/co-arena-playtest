@@ -6,7 +6,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2304070d'/%3E%3Cpath d='M18 49 44 15l4 4-26 34z' fill='%23f2d27b'/%3E%3Cpath d='M16 17l31 31' stroke='%2382b7ff' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E" />
-    <title>Iron Oath</title>
+    <title>Oath Ascendant</title>
 
     <!-- HOME-SCREEN INSTALL (iOS "Add to Home Screen" / Android web install).
          Two separate mechanisms, and only one of them is the manifest:
@@ -33,7 +33,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="Iron Oath" />
+    <meta name="apple-mobile-web-app-title" content="Oath Ascendant" />
     <meta name="theme-color" content="#04070d" />
     <!-- Sizes are the real pixel dimensions of the existing icons (no 180×180
          twin was invented for iOS — Safari downscales 184→180 itself). -->
@@ -181,7 +181,10 @@
       .iron-oath-boot__title {
         margin: 10px 0 0;
         font-family: Cinzel, Constantia, Cambria, Georgia, serif;
-        font-size: 44px;
+        font-size: clamp(26px, 6.2vw, 44px);
+        line-height: 1.1;
+        max-width: calc(100vw - 32px);
+        text-wrap: balance;
         letter-spacing: 0.08em;
         text-transform: uppercase;
         color: #fff0bd;
@@ -202,23 +205,23 @@
         50% { opacity: 1; }
       }
     </style>
-    <script type="module" crossorigin src="./assets/index-BdEGT96a.js"></script>
+    <script type="module" crossorigin src="./assets/index-CJG1_DUY.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/rolldown-runtime-BYbx6iT9.js">
     <link rel="modulepreload" crossorigin href="./assets/preload-helper-Chd9yIcd.js">
     <link rel="modulepreload" crossorigin href="./assets/react-vendor-CbVQjYLW.js">
     <link rel="modulepreload" crossorigin href="./assets/bondArt-50aa2ncn.js">
-    <link rel="modulepreload" crossorigin href="./assets/cardArt-BuZkdxdE.js">
+    <link rel="modulepreload" crossorigin href="./assets/cardArt-DnHsWayN.js">
     <link rel="modulepreload" crossorigin href="./assets/seasonClock-Bc8bnZ50.js">
-    <link rel="modulepreload" crossorigin href="./assets/supabase-DIRBqJzl.js">
+    <link rel="modulepreload" crossorigin href="./assets/supabase-DYN7NcfD.js">
     <link rel="modulepreload" crossorigin href="./assets/backStack-D-PSbC5B.js">
-    <link rel="modulepreload" crossorigin href="./assets/telemetryService-DGQZPkUl.js">
-    <link rel="stylesheet" crossorigin href="./assets/index-DBepylss.css">
+    <link rel="modulepreload" crossorigin href="./assets/telemetryService-ChzTZ0HU.js">
+    <link rel="stylesheet" crossorigin href="./assets/index-BBNQBOAQ.css">
   </head>
   <body>
     <div id="iron-oath-desktop-only" hidden>
       <section class="iron-oath-desktop-only__panel" aria-labelledby="iron-oath-desktop-title">
         <p class="iron-oath-desktop-only__eyebrow">Built for the Big Screen</p>
-        <h1 id="iron-oath-desktop-title" class="iron-oath-desktop-only__title">Iron Oath</h1>
+        <h1 id="iron-oath-desktop-title" class="iron-oath-desktop-only__title">Oath Ascendant</h1>
         <p class="iron-oath-desktop-only__body">A tactical deckbuilder crafted for desktop play.</p>
         <p class="iron-oath-desktop-only__note">
           Open this page on a desktop browser to play the web version &mdash; dedicated mobile apps are on the way.
@@ -230,7 +233,7 @@
       <div class="iron-oath-boot">
         <div>
           <p class="iron-oath-boot__eyebrow">Dark Fantasy Deckbuilder</p>
-          <h1 class="iron-oath-boot__title">Iron Oath</h1>
+          <h1 class="iron-oath-boot__title">Oath Ascendant</h1>
           <p class="iron-oath-boot__note">Forging the oath…</p>
         </div>
       </div>

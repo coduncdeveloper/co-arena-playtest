@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="index,follow" />
-  <title>Delete Your Iron Oath Account</title>
+  <title>Delete Your Oath Ascendant Account</title>
   <link rel="icon" href="./favicon.ico" />
-  <meta name="description" content="How to delete your Iron Oath account and what data is removed." />
+  <meta name="description" content="How to delete your Oath Ascendant account and what data is removed." />
   <style>
     :root {
       --ink: #07090f; --panel: #0d111a; --line: rgba(242,210,123,0.18);
@@ -46,61 +46,32 @@
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <p class="eyebrow">Iron Oath</p>
+  <main class="wrap">
     <h1>Delete Your Account</h1>
-    <p class="updated">Last updated: June 23, 2026</p>
-
-    <p>This page explains how to delete your Iron Oath account and exactly what data is
-    removed. Account deletion is permanent. (Playing as a guest does not create an account —
-    guest progress lives only in your browser/device and is never uploaded.)</p>
-
-    <div class="panel">
-      <h2>Delete from within the game (fastest)</h2>
-      <ol>
-        <li>Open Iron Oath and make sure you're signed in.</li>
-        <li>Go to <strong>Account</strong> (the profile button), then the <strong>Account</strong> tab.</li>
-        <li>Under <strong>Danger Zone</strong>, optionally tick "Clear local saves and settings after deletion," then press <strong>Delete Account</strong>.</li>
-        <li>Press <strong>Delete Account</strong> again to confirm. Your account and data are removed immediately and you are signed out.</li>
-      </ol>
-      <p class="muted">You can also export a copy of your data first via <strong>Export Data</strong> on the same screen.</p>
+    <p class="updated">Last updated: October 9, 2026</p>
+    <p>Deleting an Oath Ascendant account removes its server progress and sign-in record when the backend confirms every step. Removed progress cannot be recovered. Guest play does not create an account; explicit feedback and crash diagnostics are separate from guest saves.</p>
+    <div class="panel"><h2>Delete in the game</h2><ol>
+      <li>Sign in to the account you want to delete, then open <strong>Account</strong> and the <strong>Account</strong> tab.</li>
+      <li>Optionally choose <strong>Clear saves and queued data linked to this account</strong>. This keeps guest saves, other accounts, shared or legacy progress, device settings and unrelated storage.</li>
+      <li>Press <strong>Delete Account</strong>, then <strong>Confirm Delete Account</strong>. You can cancel before the second press.</li>
+      <li>Read the result. A missing or invalid server receipt is an unconfirmed deletion, not success. If sign-in record deletion is incomplete, you stay signed in so you can retry. Contact support if a retry does not finish it. If local sign-out or device cleanup fails, the result explains that separately.</li>
+    </ol><p class="muted">Before deletion, <strong>Export Profile &amp; Runs</strong> downloads server profile and run summaries. <strong>Export Save</strong> in Settings creates a local save backup.</p></div>
+    <div class="panel"><h2>No longer have the game?</h2>
+      <p>Email <a class="mail" href="mailto:coduncdeveloper@gmail.com?subject=Oath%20Ascendant%20account%20deletion%20request">coduncdeveloper@gmail.com</a> with the subject "Oath Ascendant account deletion request." Identify the account email, or the Steam account for Steam sign-in. Do not send a password, authentication ticket or payment details. Account ownership must be verified before deletion.</p>
     </div>
-
-    <div class="panel">
-      <h2>No longer have the game installed?</h2>
-      <p>Email <a class="mail" href="mailto:coduncdeveloper@gmail.com?subject=Iron%20Oath%20account%20deletion%20request">coduncdeveloper@gmail.com</a>
-      from (or naming) the email address on your account, with the subject
-      "Iron Oath account deletion request." We will delete the account and confirm by reply.</p>
+    <div class="panel"><h2>What the current deletion service removes</h2><ul>
+      <li>The public profile, signed-in run records, cloud player saves, linked identity record and account-linked usage events.</li>
+      <li>The authentication user when the database permits it. Authentication deletion also cascades to dependent account records such as cloud Champion archives and entitlements. If it is blocked, these remaining records require a retry or support follow-up.</li>
+      <li>Pending device usage events for the deleted account. Optional local cleanup removes provably account-owned campaign slots, account-specific Raid checkpoints and that account's queued submissions or report drafts. It does not claim to erase unowned shared saves.</li>
+    </ul></div>
+    <div class="panel"><h2>What can remain</h2>
+      <p>Steam deletion retains a re-entry block with Steam identifiers, synthetic email, former account ID and deletion date. Submitted feedback can remain after its account link is removed, including reporter name, report text and screenshot. Unlinked crash diagnostics and previously published competitive history can remain. The current code has no automatic expiry for those records; provider backups and operational logs need separate review. Contact support about retained personal information.</p>
+      <p>Guest, other-account, shared or legacy device progress and settings are preserved. Their ownership markers remain to prevent cross-account transfer. <strong>Delete Local Campaign Progress</strong> in Settings separately clears local campaign runs, history, profile and unlock progress, including guests. It keeps Raid/Champion saves and settings; platform storage controls can remove the remaining device data.</p>
     </div>
-
-    <div class="panel">
-      <h2>What gets deleted</h2>
-      <ul>
-        <li>Your public profile row — username, bio, avatar, and equipped cosmetics.</li>
-        <li>All of your signed-in run records and run-summary data (oath, outcome, map reached, duration, scars, mastery, daily-challenge dates, completion times).</li>
-        <li>Your gameplay telemetry events tied to the account.</li>
-        <li>Your authentication record (the Supabase Auth user / email sign-in), where the database permits it. If automatic auth-record removal is blocked, we complete it manually on request.</li>
-        <li>Optionally, your on-device saves, settings, and unlock progress — only if you tick "Clear local saves" during deletion (or clear your browser storage yourself).</li>
-      </ul>
+    <div class="panel"><h2>Timing</h2>
+      <p>In-game requests return a backend result during the action. A partial or unconfirmed result is not a completed deletion. Email requests require ownership verification and support follow-up. The release retention schedule and support response commitment still require owner confirmation.</p>
     </div>
-
-    <div class="panel">
-      <h2>What we keep</h2>
-      <p>Nothing that identifies you. After deletion there is no profile, no run history, and
-      no telemetry tied to your account. We do not sell data or retain personal data for
-      marketing.</p>
-    </div>
-
-    <div class="panel">
-      <h2>How long it takes</h2>
-      <p>In-app deletion is <strong>immediate</strong>. Email requests are completed within
-      <strong>30 days</strong> (typically much sooner).</p>
-    </div>
-
-    <footer>
-      See also our <a href="./privacy.html">Privacy Notice</a> &middot;
-      Contact <a href="mailto:coduncdeveloper@gmail.com">coduncdeveloper@gmail.com</a>
-    </footer>
-  </div>
+    <footer><a href="./privacy.html">Privacy Notice</a> &middot; <a href="mailto:coduncdeveloper@gmail.com">coduncdeveloper@gmail.com</a></footer>
+  </main>
 </body>
 </html>
