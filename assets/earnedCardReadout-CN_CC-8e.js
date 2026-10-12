@@ -1,0 +1,1 @@
+import{Pu as e,nl as t,zu as n}from"./index-DFZAD7FC.js";function r(r,i,a){let o=Math.max(0,a??i.level??0),s=t(i),c=Math.max(0,n(e(r,o),s.filter(e=>e.id===`leaden_vow`).length,s.filter(e=>e.id===`iron_vow`).length)-Math.max(0,-(i.costModifier??0)));return{card:{...r,etchings:s},upgraded:o>0,level:o,costOverride:c}}export{r as t};

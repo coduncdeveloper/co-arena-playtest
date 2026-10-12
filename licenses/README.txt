@@ -5,10 +5,12 @@ The .txt files in this directory are AUTHORITATIVE license texts copied
 byte-for-byte from the installed @fontsource packages. They are not reproduced,
 paraphrased, or edited by hand. Each copy's SHA-256 matches its source exactly.
 
-Note on distribution: the shipped game build does not bundle the font binaries
-(dist/ contains no .woff/.woff2/.ttf) — the UI names these families in CSS with
-system fallbacks, and the @fontsource packages supply them to the video-render
-tooling. These license texts are included for completeness and attribution.
+Note on distribution: the shipped game includes four unmodified Latin WOFF2
+subsets for the road event interface: Cinzel 500, Cormorant Garamond 400, and
+Inter 400/600. The event-only CSS family aliases do not modify the font files.
+Their authoritative license texts ship alongside the binaries under licenses/.
+Other interfaces retain their configured system fallbacks; the @fontsource
+packages also supply fonts to the video-render tooling.
 
 OFL-cinzel.txt
   Font family : Cinzel
